@@ -4,7 +4,7 @@ import java.util.ConcurrentModificationException;
 
 import cartes.Carte;
 
-public class Sabot{
+public class Sabot <Carte> implements Iterable{
 	private int nombreCartesMax;
 	Carte[] cartes;
 	private int nbCartes;
@@ -26,18 +26,17 @@ public class Sabot{
 		}
 	}
 	public void ajouterFamilleCarte(Carte[] tabcarte) {
-		try {
-			for (int i=0;i<tabcarte.length;i++) {
-				ajouterCarte(tabcarte[i]);
-			}
-		}catch (IllegalStateException e) {
-			
-		}catch (ConcurrentModificationException j) {
-			
+		for (int i=0;i<tabcarte.length;i++) {
+			ajouterCarte(tabcarte[i]);
 		}
 	}
-	public void remove() {
-		cartes[nbCartes]=null;
+	public void remove(int i) {
+		cartes[i]=null;
 		nbCartes-=1;
+	}
+	public Carte piocher() {
+		Carte=cartes[iterateur];
+		remove(iterateur);
+		return Carte;
 	}
 }
