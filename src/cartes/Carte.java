@@ -6,7 +6,5 @@ public abstract class Carte {
 	public Carte(int nombre) {
 		this.nombre = nombre;
 	}
-	public String toString() {
-		return "";
-	}
+	public abstract String toString();
 }
