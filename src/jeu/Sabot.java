@@ -1,17 +1,20 @@
 package jeu;
 
 import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import cartes.Carte;
 
-public class Sabot <Carte> implements Iterable{
+public class Sabot  implements Iterable<Carte>{
 	private int nombreCartesMax;
 	Carte[] cartes;
 	private int nbCartes;
+	private int indiceIterateur=0;
 	
 	public Sabot(int nombreCartesMax, int nbCartes) {
 		this.nombreCartesMax=nombreCartesMax;
-		Carte[] cartes= new Carte[nombreCartesMax];
+		cartes= new Carte[nombreCartesMax];
 		this.nbCartes=nbCartes;
 	}
 	public boolean estVide() {
@@ -30,13 +33,37 @@ public class Sabot <Carte> implements Iterable{
 			ajouterCarte(tabcarte[i]);
 		}
 	}
-	public void remove(int i) {
-		cartes[i]=null;
-		nbCartes-=1;
-	}
 	public Carte piocher() {
-		Carte=cartes[iterateur];
-		remove(iterateur);
-		return Carte;
+		Carte c=cartes[indiceIterateur];
+		Iterateur it=new Iterateur();
+		it.remove();
+		return c;
+	}
+	
+	public Iterator<Carte> iterator() {
+		return new Iterateur();
+	}
+	
+	
+	private class Iterateur implements Iterator<Carte>{
+		private int indiceIterateur=0;
+		private boolean nextEffectue=false;
+		public boolean hasNext() {
+			return indiceIterateur<nbCartes;
+		}
+		public Carte next() {
+			if (hasNext()) {
+				Carte carte=cartes[indiceIterateur];
+				indiceIterateur++;
+				nextEffectue=true;
+				return carte;
+			}else {
+				throw new NoSuchElementException();
+			}
+		}
+		public void remove() {
+			cartes[nbCartes]=null;
+			nbCartes-=1;
+		}
 	}
 }
