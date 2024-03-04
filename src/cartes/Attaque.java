@@ -7,15 +7,15 @@ public class Attaque extends Bataille {
 		super(n, type);
 	}
 	public String toString() {
-		switch (type) {
+		switch (getType()) {
 		case FEU:
-			return "C'est une carte FEU rouge";
+			return " une carte FEU rouge";
 		case ACCIDENT:
-			return "C'est une carte Accident";
+			return " une carte Accident";
 		case CREVAISON:
-			return "C'est une carte Crevaison";
+			return " une carte Crevaison";
 		case ESSENCE:
-			return "C'est une carte Panne d'essence";
+			return " une carte Panne d'essence";
 		default:
 			return "erreur";
 		}

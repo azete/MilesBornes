@@ -6,15 +6,15 @@ public class Parade extends Bataille {
 		super(n, type);
 	}
 	public String toString() {
-		switch (type) {
+		switch (getType()) {
 		case FEU:
-			return "C'est une carte FEU vert";
+			return " une carte FEU vert";
 		case ACCIDENT:
-			return "C'est une carte Reparation";
+			return " une carte Reparation";
 		case CREVAISON:
-			return "C'est une carte Roue de secours";
+			return " une carte Roue de secours";
 		case ESSENCE:
-			return "C'est une carte	Essence";
+			return " une carte	Essence";
 		default:
 			return "erreur";
 		}

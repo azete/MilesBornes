@@ -7,4 +7,7 @@ public abstract class Carte {
 		this.nombre = nombre;
 	}
 	public abstract String toString();
+	public int getNombre() {
+		return nombre;
+	}
 }

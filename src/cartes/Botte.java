@@ -6,15 +6,15 @@ public class Botte extends Probleme {
 		super(n , type);
 	}
 	public String toString() {
-		switch (type) {
+		switch (getType()) {
 		case FEU:
-			return "C'est une carte Prioritaire";
+			return " une carte Prioritaire";
 		case ACCIDENT:
-			return "C'est une carte As du volant";
+			return " une carte As du volant";
 		case CREVAISON:
-			return "C'est une carte Increvable";
+			return " une carte Increvable";
 		case ESSENCE:
-			return "C'est une carte Citerne";
+			return " une carte Citerne";
 		default:
 			return "erreur";
 		}

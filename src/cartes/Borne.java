@@ -8,6 +8,6 @@ public class Borne extends Carte {
 		this.km=km;
 	}
 	public String toString() {
-		return "C'est une carte qui donne "+ km + " km.";
+		return " une carte qui donne "+ km + " km.";
 	}
 }

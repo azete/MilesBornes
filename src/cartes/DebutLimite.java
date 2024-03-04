@@ -6,6 +6,6 @@ public class DebutLimite extends Limite {
 		super(n);
 	}
 	public String toString() {
-		return "C'est une carte debut de limitation 50 km.";
+		return " une carte debut de limitation 50 km.";
 	}
 }

@@ -6,6 +6,6 @@ public class FinLimite extends Limite {
 		super(n);
 	}
 	public String toString() {
-		return "C'est une carte fin de limitation 50 km.";
+		return " une carte fin de limitation 50 km.";
 	}
 }

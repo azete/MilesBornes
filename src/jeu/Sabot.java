@@ -34,8 +34,8 @@ public class Sabot  implements Iterable<Carte>{
 		}
 	}
 	public Carte piocher() {
-		Carte c=cartes[indiceIterateur];
 		Iterateur it=new Iterateur();
+		Carte c=it.next();
 		it.remove();
 		return c;
 	}
@@ -46,7 +46,6 @@ public class Sabot  implements Iterable<Carte>{
 	
 	
 	private class Iterateur implements Iterator<Carte>{
-		private int indiceIterateur=0;
 		private boolean nextEffectue=false;
 		public boolean hasNext() {
 			return indiceIterateur<nbCartes;
@@ -56,6 +55,7 @@ public class Sabot  implements Iterable<Carte>{
 				Carte carte=cartes[indiceIterateur];
 				indiceIterateur++;
 				nextEffectue=true;
+				System.out.println("je pioche" + carte.toString());
 				return carte;
 			}else {
 				throw new NoSuchElementException();
