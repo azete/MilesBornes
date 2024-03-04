@@ -11,6 +11,7 @@ public class Sabot  implements Iterable<Carte>{
 	Carte[] cartes;
 	private int nbCartes;
 	private int indiceIterateur=0;
+	private int nbOperations=0;
 	
 	public Sabot(int nombreCartesMax, int nbCartes) {
 		this.nombreCartesMax=nombreCartesMax;
@@ -24,11 +25,12 @@ public class Sabot  implements Iterable<Carte>{
 		try {
 			cartes[nbCartes]=carte;
 			nbCartes+=1;
+			nbOperations++;
 		}catch (NullPointerException e) {
 			System.out.println("dépassement de capacité.");
 		}
 	}
-	public void ajouterFamilleCarte(Carte[] tabcarte) {
+	public void ajouterFamilleCarte(Carte... tabcarte) {
 		for (int i=0;i<tabcarte.length;i++) {
 			ajouterCarte(tabcarte[i]);
 		}
@@ -47,10 +49,12 @@ public class Sabot  implements Iterable<Carte>{
 	
 	private class Iterateur implements Iterator<Carte>{
 		private boolean nextEffectue=false;
+		private int nbOperationReference=nbOperations;
 		public boolean hasNext() {
 			return indiceIterateur<nbCartes;
 		}
 		public Carte next() {
+			verificationOperation();
 			if (hasNext()) {
 				Carte carte=cartes[indiceIterateur];
 				indiceIterateur++;
@@ -61,9 +65,15 @@ public class Sabot  implements Iterable<Carte>{
 				throw new NoSuchElementException();
 			}
 		}
+		private void verificationOperation() {
+			if (nbOperations!=nbOperationReference)
+				throw new ConcurrentModificationException();
+		}
 		public void remove() {
+			verificationOperation();
 			cartes[nbCartes]=null;
 			nbCartes-=1;
+			nbOperationReference++;nbOperations++;
 		}
 	}
 }

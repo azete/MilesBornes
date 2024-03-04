@@ -2,6 +2,7 @@ package testsFonctionnels;
 
 import cartes.Carte;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -43,15 +44,16 @@ public class test {
 //			oui.remove();
 //		}
 		// exo 2 c)
-		Iterator<Carte> oui=sabot.iterator();
-		for (int i=0;i<7;i++) {
-			try {
-				oui.next();
-				oui.remove();
-				sabot.piocher();
-			}catch (NoSuchElementException e) {
-				throw new NoSuchElementException();
-			}
-		}
+//		Iterator<Carte> oui=sabot.iterator();
+//		for (int i=0;i<7;i++) {
+//			try {
+//				oui.next();
+//				oui.remove();
+//				sabot.piocher();
+//			}catch(ConcurrentModificationException e) {
+//				throw new ConcurrentModificationException();
+//			}
+//		}
+		
 	}
 }
