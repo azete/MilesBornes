@@ -54,6 +54,7 @@ public class test {
 //				throw new ConcurrentModificationException();
 //			}
 //		}
-		
+		System.out.println(accident.equals(reparation));
+		System.out.println(accident.equals(accident));
 	}
 }

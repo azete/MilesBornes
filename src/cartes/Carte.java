@@ -10,12 +10,16 @@ public abstract class Carte {
 	public int getNombre() {
 		return nombre;
 	}
-	public boolean equals(Object obj) {
-		if (obj!=null && obj.getClass()==getClass()) {
-			Carte carte= (Carte) obj;
-			return carte.equals(obj);
-		}
-		return false;
-	}
+	 @Override
+	    public boolean equals(Object obj) {
+	        if (this == obj) {
+	            return true;
+	        }
+	        if (obj == null || getClass() != obj.getClass()) {
+	            return false;
+	        }
+	        Carte carte = (Carte) obj;
+	        return this.getClass() == carte.getClass();
+	    }
 	
 }
