@@ -10,4 +10,7 @@ public class Borne extends Carte {
 	public String toString() {
 		return " une carte qui donne "+ km + " km.";
 	}
+	public int getKm() {
+		return km;
+	}
 }

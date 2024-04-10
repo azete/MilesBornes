@@ -10,6 +10,9 @@ public abstract class Carte {
 	public int getNombre() {
 		return nombre;
 	}
+	public void setNombre(int nombre) {
+		this.nombre=nombre;
+	}
 	 @Override
 	    public boolean equals(Object obj) {
 	        if (this == obj) {
